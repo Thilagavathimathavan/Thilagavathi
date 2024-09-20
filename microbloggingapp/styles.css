@@ -42,6 +42,25 @@ button {
 button:hover {
     background-color: #0056b3;
 }
+button.like-btn, button.delete-btn {
+    margin-left: 10px;
+}
+
+button.like-btn {
+    background-color: #28a745;
+}
+
+button.delete-btn {
+    background-color: #dc3545;
+}
+
+button.like-btn:hover {
+    background-color: #218838;
+}
+
+button.delete-btn:hover {
+    background-color: #c82333;
+}
 
 #feed > div {
     background: #f9f9f9;
