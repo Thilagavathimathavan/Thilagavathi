@@ -1,16 +1,22 @@
-// Load feed from localStorage when the page is loaded
-document.addEventListener('DOMContentLoaded', loadFeed);
 
+// Load feed from localStorage when the page is loaded
+document.addEventListener('DOMContentLoaded', () => {
+    loadFeed();
+});
+
+// Create a new post
 function createPost() {
     const content = document.getElementById('post-content').value;
+
     if (content.trim() === '') {
-        alert("Post cannot be empty!");
+        alert("Post content is required!");
         return;
     }
 
     const post = {
         content: content,
-        timestamp: new Date().toLocaleString()
+        timestamp: new Date().toLocaleString(),
+        likes: 0 // Initialize post with 0 likes
     };
 
     // Save the post in localStorage
@@ -18,25 +24,25 @@ function createPost() {
     posts.push(post);
     localStorage.setItem('posts', JSON.stringify(posts));
 
-    // Clear the textarea
+    // Clear input fields
     document.getElementById('post-content').value = '';
 
     // Reload the feed
     loadFeed();
 }
 
+// Load the feed (all posts)
 function loadFeed() {
     const feed = document.getElementById('feed');
     feed.innerHTML = '';
 
     const posts = JSON.parse(localStorage.getItem('posts')) || [];
 
-    posts.forEach(post => {
+    posts.forEach((post, index) => {
         const postDiv = document.createElement('div');
         postDiv.textContent = `${post.content} (Posted on ${post.timestamp})`;
-        feed.appendChild(postDiv);
-        
-    });
+
+        // Create like button
         const likeBtn = document.createElement('button');
         likeBtn.textContent = `Like (${post.likes})`; // Display the number of likes
         likeBtn.classList.add('like-btn');
@@ -64,5 +70,6 @@ function loadFeed() {
         postDiv.appendChild(likeBtn);
         postDiv.appendChild(deleteBtn);
         feed.appendChild(postDiv);
-}) ;
+    });
 }
+
