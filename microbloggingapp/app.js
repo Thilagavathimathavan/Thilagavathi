@@ -35,5 +35,34 @@ function loadFeed() {
         const postDiv = document.createElement('div');
         postDiv.textContent = `${post.content} (Posted on ${post.timestamp})`;
         feed.appendChild(postDiv);
-    });
+        
+    });Create like button
+        const likeBtn = document.createElement('button');
+        likeBtn.textContent = `Like (${post.likes})`; // Display the number of likes
+        likeBtn.classList.add('like-btn');
+        
+        // Add functionality to increment likes when clicked
+        likeBtn.onclick = function () {
+            posts[index].likes++; // Increment the number of likes
+            localStorage.setItem('posts', JSON.stringify(posts)); // Update localStorage
+            loadFeed(); // Reload feed to show updated like count
+        };
+
+        // Create delete button
+        const deleteBtn = document.createElement('button');
+        deleteBtn.textContent = 'Delete';
+        deleteBtn.classList.add('delete-btn');
+        
+        // Add functionality to delete post when clicked
+        deleteBtn.onclick = function () {
+            posts.splice(index, 1); // Remove post from array
+            localStorage.setItem('posts', JSON.stringify(posts)); // Update localStorage
+            loadFeed(); // Reload feed to reflect the deletion
+        };
+
+        // Append like and delete buttons to each post
+        postDiv.appendChild(likeBtn);
+        postDiv.appendChild(deleteBtn);
+        feed.appendChild(postDiv);
+}) ;
 }
