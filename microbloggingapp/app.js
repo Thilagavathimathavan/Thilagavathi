@@ -36,7 +36,7 @@ function loadFeed() {
         postDiv.textContent = `${post.content} (Posted on ${post.timestamp})`;
         feed.appendChild(postDiv);
         
-    });Create like button
+    });
         const likeBtn = document.createElement('button');
         likeBtn.textContent = `Like (${post.likes})`; // Display the number of likes
         likeBtn.classList.add('like-btn');
