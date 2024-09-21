@@ -6,7 +6,7 @@ body {
 }
 
 header {
-    background-color: pink;
+    background-color:#FF1493;
     color: white;
     text-align: center;
     padding: 20px;
@@ -32,8 +32,8 @@ main {
 }
 
 .dish img {
-    width: 100px;
-    height: 100px;
+    width: 70px;
+    height: 70px;
     object-fit: cover;
     border-radius: 5px;
     margin-bottom: 10px;
