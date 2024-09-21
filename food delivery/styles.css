@@ -6,7 +6,7 @@ body {
 }
 
 header {
-    background-color:#FF1493;
+    background-color:#C71585;
     color: white;
     text-align: center;
     padding: 20px;
@@ -23,7 +23,7 @@ main {
 }
 
 .dish {
-    background-color: white;
+    background-color:lavender;
     margin: 10px;
     padding: 10px;
     border-radius: 8px;
