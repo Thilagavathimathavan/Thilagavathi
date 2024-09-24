@@ -11,6 +11,31 @@ header {
     text-align: center;
     padding: 20px;
 }
+.restaurant-button {
+    padding: 10px 20px;
+    margin: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.restaurant-button:hover {
+    background-color: #0056b3;
+}
+
+.restaurant-list {
+    margin-bottom: 20px;
+}
+
+.restaurant-info {
+    margin-top: 20px;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    max-width: 400px;
+}
 
 main {
     display: flex;
