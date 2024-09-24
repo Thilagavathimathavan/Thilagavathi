@@ -1,13 +1,10 @@
-// Load feed from localStorage when the page is loaded
 document.addEventListener('DOMContentLoaded', () => {
     loadFeed();
 });
-
 // Create a new post
 function createPost() {
     const content = document.getElementById('post-content').value;
-
-    if (content.trim() === '') {
+     if (content.trim() === '') {
         alert("Post content is required!");
         return;
     }
@@ -15,11 +12,9 @@ function createPost() {
     const post = {
         content: content,
         timestamp: new Date().toLocaleString(),
-        likes: 0, // Initialize post with 0 likes
-        comments: [] // Initialize post with an empty comments array
+        likes: 0 // Initialize post with 0 likes
     };
-
-    // Save the post in localStorage
+// Save the post in localStorage
     let posts = JSON.parse(localStorage.getItem('posts')) || [];
     posts.push(post);
     localStorage.setItem('posts', JSON.stringify(posts));
@@ -41,11 +36,6 @@ function loadFeed() {
     posts.forEach((post, index) => {
         const postDiv = document.createElement('div');
         postDiv.textContent = `${post.content} (Posted on ${post.timestamp})`;
-
-        // Display the total number of comments
-        const commentCount = document.createElement('p');
-        commentCount.textContent = `Comments: ${post.comments.length}`;
-        postDiv.appendChild(commentCount);
 
         // Create like button
         const likeBtn = document.createElement('button');
@@ -71,31 +61,10 @@ function loadFeed() {
             loadFeed(); // Reload feed to reflect the deletion
         };
 
-        // Create comment section
-        const commentInput = document.createElement('input');
-        commentInput.type = 'text';
-        commentInput.placeholder = 'Add a comment...';
-        
-        const commentBtn = document.createElement('button');
-        commentBtn.textContent = 'Comment';
-        
-        // Add functionality to add a comment
-        commentBtn.onclick = function () {
-            const comment = commentInput.value;
-            if (comment.trim() === '') {
-                alert("Comment content is required!");
-                return;
-            }
-            posts[index].comments.push(comment); // Add comment to post
-            localStorage.setItem('posts', JSON.stringify(posts)); // Update localStorage
-            loadFeed(); // Reload feed to show updated comments
-        };
-
-        // Append elements to the post
+        // Append like and delete buttons to each post
         postDiv.appendChild(likeBtn);
         postDiv.appendChild(deleteBtn);
-        postDiv.appendChild(commentInput);
-        postDiv.appendChild(commentBtn);
         feed.appendChild(postDiv);
     });
-}
+            }
+    
