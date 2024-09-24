@@ -19,7 +19,6 @@ header {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    text-align: center;
 }
 
 .restaurant-button:hover {
@@ -28,7 +27,8 @@ header {
 
 .restaurant-list {
     margin-bottom: 20px;
-    text-align: center;
+    display:flex;
+    justify-content:center;
 }
 
 .restaurant-info {
@@ -37,7 +37,7 @@ header {
     border: 1px solid #ccc;
     border-radius: 5px;
     max-width: 400px;
-    text-align: center;
+   
 }
 
 main {
