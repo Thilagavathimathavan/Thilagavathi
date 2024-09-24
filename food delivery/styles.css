@@ -11,6 +11,9 @@ header {
     text-align: center;
     padding: 20px;
 }
+h2{
+    text-align:center;
+}
 .restaurant-button {
     padding: 10px 20px;
     margin: 10px;
