@@ -51,6 +51,17 @@ function loadFeed() {
             localStorage.setItem('posts', JSON.stringify(posts)); // Update localStorage
             loadFeed(); // Reload feed to show updated like count
         };
+        //create dislike
+         const dislikeBtn = document.createElement('button');
+         dislikeBtn.innerHTML = `dislike (${post.dislikes})`; // Add the emoji next to the text
+         dislikeBtn.classList.add('dislike-btn');
+        
+        // Add functionality to increment likes when clicked
+        dislikeBtn.onclick = function () {
+            posts[index].dislikes++; // Increment the number of likes
+            localStorage.setItem('posts', JSON.stringify(posts)); // Update localStorage
+            loadFeed(); // Reload feed to show updated like count
+        };
 
         // Create delete button
         const deleteBtn = document.createElement('button');
@@ -67,6 +78,7 @@ function loadFeed() {
         // Append like and delete buttons to each post
         postDiv.appendChild(likeBtn);
         postDiv.appendChild(deleteBtn);
+        postDiv.appendChild(dislikeBtn);
         feed.appendChild(postDiv);
     });
 }
