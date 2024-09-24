@@ -49,7 +49,7 @@ button:hover {
     background-color: #0056b3;
 }
 
-button.like-btn, button.delete-btn {
+button.like-btn, button.delete-btn,button.dislike-button {
     margin-left: 10px;
 }
 
@@ -60,12 +60,18 @@ button.like-btn {
 button.delete-btn {
     background-color: #dc3545;
 }
+button.dislike-btn {
+    background-color: #dc3545;
+}
 
 button.like-btn:hover {
     background-color: #218838;
 }
 
 button.delete-btn:hover {
+    background-color: #c82333;
+}
+button.dislike-btn:hover {
     background-color: #c82333;
 }
 
