@@ -1,5 +1,33 @@
 let cart = {};
 let totalPrice = 0;
+const restaurants = [
+    { name: 'Restaurant A', description: 'This is Restaurant A, known for its Italian cuisine.' },
+    { name: 'Restaurant B', description: 'This is Restaurant B, famous for its sushi and Asian fusion.' },
+    { name: 'Restaurant C', description: 'This is Restaurant C, a top choice for Mexican food.' }
+];
+
+// Function to generate restaurant buttons dynamically
+function loadRestaurants() {
+    const restaurantListDiv = document.getElementById("restaurant-list");
+
+    restaurants.forEach(restaurant => {
+        const button = document.createElement("button");
+        button.className = "restaurant-button";
+        button.textContent = restaurant.name;
+        button.onclick = () => selectRestaurant(restaurant);
+        restaurantListDiv.appendChild(button);
+    });
+}
+
+// Function to display selected restaurant details
+function selectRestaurant(restaurant) {
+    document.getElementById("restaurant-name").textContent = restaurant.name;
+    document.getElementById("restaurant-description").textContent = restaurant.description;
+    document.getElementById("selected-restaurant").style.display = "block";
+}
+
+// Load restaurants on page load
+window.onload = loadRestaurants;
 
 function addToCart(dishName, price) {
     if (cart[dishName]) {
