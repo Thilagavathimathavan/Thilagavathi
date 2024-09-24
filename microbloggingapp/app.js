@@ -1,4 +1,3 @@
-
 // Load feed from localStorage when the page is loaded
 document.addEventListener('DOMContentLoaded', () => {
     loadFeed();
@@ -16,7 +15,8 @@ function createPost() {
     const post = {
         content: content,
         timestamp: new Date().toLocaleString(),
-        likes: 0 // Initialize post with 0 likes
+        likes: 0, // Initialize post with 0 likes
+        comments: [] // Initialize post with an empty comments array
     };
 
     // Save the post in localStorage
@@ -42,9 +42,14 @@ function loadFeed() {
         const postDiv = document.createElement('div');
         postDiv.textContent = `${post.content} (Posted on ${post.timestamp})`;
 
+        // Display the total number of comments
+        const commentCount = document.createElement('p');
+        commentCount.textContent = `Comments: ${post.comments.length}`;
+        postDiv.appendChild(commentCount);
+
         // Create like button
         const likeBtn = document.createElement('button');
-        likeBtn.innerHTML= `Like 👍 (${post.likes})`; // Display the number of likes
+        likeBtn.innerHTML = `👍 Like (${post.likes})`; // Add the emoji next to the text
         likeBtn.classList.add('like-btn');
         
         // Add functionality to increment likes when clicked
@@ -66,10 +71,31 @@ function loadFeed() {
             loadFeed(); // Reload feed to reflect the deletion
         };
 
-        // Append like and delete buttons to each post
+        // Create comment section
+        const commentInput = document.createElement('input');
+        commentInput.type = 'text';
+        commentInput.placeholder = 'Add a comment...';
+        
+        const commentBtn = document.createElement('button');
+        commentBtn.textContent = 'Comment';
+        
+        // Add functionality to add a comment
+        commentBtn.onclick = function () {
+            const comment = commentInput.value;
+            if (comment.trim() === '') {
+                alert("Comment content is required!");
+                return;
+            }
+            posts[index].comments.push(comment); // Add comment to post
+            localStorage.setItem('posts', JSON.stringify(posts)); // Update localStorage
+            loadFeed(); // Reload feed to show updated comments
+        };
+
+        // Append elements to the post
         postDiv.appendChild(likeBtn);
         postDiv.appendChild(deleteBtn);
+        postDiv.appendChild(commentInput);
+        postDiv.appendChild(commentBtn);
         feed.appendChild(postDiv);
     });
 }
-
