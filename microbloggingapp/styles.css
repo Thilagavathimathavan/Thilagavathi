@@ -61,7 +61,7 @@ button.delete-btn {
     background-color: #dc3545;
 }
 button.dislike-btn {
-    background-color: #dc3545;
+    background-color: blue;
 }
 
 button.like-btn:hover {
