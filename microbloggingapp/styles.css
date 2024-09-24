@@ -10,6 +10,12 @@ body {
     height: 100vh;
     color: #333;
 }
+header {
+    background-color:#C71585;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
 
 #post-section, #feed-section {
     background: lavender;
