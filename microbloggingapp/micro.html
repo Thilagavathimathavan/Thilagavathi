@@ -21,6 +21,7 @@
         h1 {
             text-align: center;
             color: #333;
+            background-color:violet;
         }
         textarea {
             width: 100%;
@@ -125,8 +126,8 @@
             postDiv.innerHTML = `
                 <p><strong>${post.author}:</strong> ${post.content}</p>
                 <p>
-                    <span class="like-button" onclick="likePost(${post.id})">Like</span> (<span id="like-count-${post.id}">${post.likes}</span>)
-                    <span class="dislike-button" onclick="dislikePost(${post.id})">Dislike</span> (<span id="dislike-count-${post.id}">${post.dislikes}</span>)
+                    <span class="like-button" onclick="likePost(${post.id})">Like👍</span> (<span id="like-count-${post.id}">${post.likes}</span>)
+                    <span class="dislike-button" onclick="dislikePost(${post.id})">Dislike👎</span> (<span id="dislike-count-${post.id}">${post.dislikes}</span>)
                 </p>
                 <p>
                     <span class="comment-button" onclick="toggleComments(${post.id})">Comments</span> (<span id="comment-count-${post.id}">${post.comments.length}</span>)
