@@ -1,9 +1,9 @@
 let cart = {};
 let totalPrice = 0;
 const restaurants = [
-    { name: 'Restaurant A', description: 'This is Restaurant A, known for its Italian cuisine.' },
-    { name: 'Restaurant B', description: 'This is Restaurant B, famous for its sushi and Asian fusion.' },
-    { name: 'Restaurant C', description: 'This is Restaurant C, a top choice for Mexican food.' }
+    { name: 'Restaurant A', description: 'This is Restaurant A, special for burger.' },
+    { name: 'Restaurant B', description: 'This is Restaurant B, famous for pizza.' },
+    { name: 'Restaurant C', description: 'This is Restaurant C, famous for showerma.' }
 ];
 
 // Function to generate restaurant buttons dynamically
