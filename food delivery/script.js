@@ -1,7 +1,7 @@
 // Sample data for restaurants, menu items, and users
 const restaurants = [
-    { id: 1, name: 'Restaurant A', rating: 4.5, reviews: 120, cuisine: 'Italian', menu: [{ name: 'Pizza', price: 10 }, { name: 'Burger', price: 5 }] },
-    { id: 2, name: 'Restaurant B', rating: 4.0, reviews: 80, cuisine: 'Chinese', menu: [{ name: 'Noodles', price: 8 }, { name: 'Spring Rolls', price: 6 }] }
+    { id: 1, name: 'Restaurant A', rating: 4.5, reviews: 120, cuisine: 'Italian', menu: [{ name: 'Pizza', price: 100}, { name: 'Burger', price: 150},{name:'Showerma',price:140}] },
+    { id: 2, name: 'Restaurant B', rating: 4.0, reviews: 80, cuisine: 'Chinese', menu: [{ name: 'Noodles', price: 80 }, { name: 'Spring Rolls', price: 60 },{name:'grill chicken', price:160}] }
 ];
 
   // Mock user data
