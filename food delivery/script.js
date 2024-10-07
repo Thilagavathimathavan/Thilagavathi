@@ -4,8 +4,9 @@ const restaurants = [
     { id: 2, name: 'Restaurant B', rating: 4.0, reviews: 80, cuisine: 'Chinese', menu: [{ name: 'Noodles', price: 8 }, { name: 'Spring Rolls', price: 6 }] }
 ];
 
-const users = [{ username: 'user1', password: 'password1' }];  // Mock user data
-let loggedInUser = null;  // To keep track of the logged-in user
+  // Mock user data
+let users= [];
+let loggedInUser = null;  // To keep traletk of the logged-in user
 let cart = [];
 
 // Load Home Page on Initial Load
