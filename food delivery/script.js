@@ -1,137 +1,158 @@
-// Sample data for restaurants, menu items, and users
-const restaurants = [
-    { id: 1, name: 'Restaurant A', rating: 4.5, reviews: 120, cuisine: 'Italian', menu: [{ name: 'Pizza', price: 100,image:'pizza.jpg'}, { name: 'Burger', price: 150,image:'burger.jpg'},{name:'Showerma',price:140,image:'showerma.jpg'}] },
-    { id: 2, name: 'Restaurant B', rating: 4.0, reviews: 80, cuisine: 'Chinese', menu: [{ name: 'Noodles', price: 80 ,image:'noodles.jpg'}, { name: 'Spring Rolls', price: 60 ,image:'springrolls.jpg'},{name:'grill chicken', price:160,image:'grillchicken.jpg'}] }
-];
+let cart = {};
+let totalPrice = 0;
 
-  // Mock user data
-let users= [];
-let loggedInUser = null;  // To keep traletk of the logged-in user
-let cart = [];
+// Sample menus for each restaurant with descriptions and ratings
+const menus = {
+    "Pizza Place": [
+        { name: "Margherita Pizza", price: 120, img: "pizza1.jpg", description: "Classic pizza with mozzarella and basil.", rating: 4.5 },
+        { name: "Pepperoni Pizza", price: 150, img: "pizza2.jpg", description: "Spicy pepperoni slices on a cheesy base.", rating: 4.7 },
+        { name: "Vegetable Pizza", price: 100, img: "pizza3.jpg", description: "Fresh vegetables on a tomato base.", rating: 4.3 },
+        { name: "BBQ Chicken Pizza", price: 180, img: "pizza4.jpg", description: "BBQ chicken with red onions and cilantro.", rating: 4.8 },
+        { name: "Four Cheese Pizza", price: 200, img: "pizza5.jpg", description: "A blend of four delicious cheeses.", rating: 4.6 },
+        { name: "Hawaiian Pizza", price: 160, img: "pizza6.jpg", description: "Topped with ham and pineapple.", rating: 4.4 }
+    ],
+    "Burger Joint": [
+        { name: "Cheeseburger", price: 100, img: "burger1.jpg", description: "Juicy beef patty with cheddar cheese.", rating: 4.4 },
+        { name: "Veggie Burger", price: 80, img: "burger2.jpg", description: "Delicious plant-based burger.", rating: 4.2 },
+        { name: "Bacon Burger", price: 120, img: "burger3.jpg", description: "Loaded with crispy bacon and cheese.", rating: 4.6 },
+        { name: "Spicy Chicken Burger", price: 110, img: "burger4.jpg", description: "Crispy chicken with spicy mayo.", rating: 4.5 },
+        { name: "BBQ Burger", price: 130, img: "burger5.jpg", description: "BBQ sauce with onion rings.", rating: 4.3 },
+        { name: "Mushroom Swiss Burger", price: 140, img: "burger6.jpg", description: "Mushrooms and Swiss cheese.", rating: 4.4 }
+    ],
+    "Pasta House": [
+        { name: "Spaghetti Bolognese", price: 140, img: "pasta1.jpg", description: "Traditional Italian spaghetti with meat sauce.", rating: 4.8 },
+        { name: "Penne Alfredo", price: 120, img: "pasta2.jpg", description: "Creamy Alfredo sauce with penne pasta.", rating: 4.5 },
+        { name: "Fettuccine Carbonara", price: 130, img: "pasta3.jpg", description: "Classic carbonara with pancetta.", rating: 4.6 },
+        { name: "Lasagna", price: 160, img: "pasta4.jpg", description: "Layers of pasta with meat and cheese.", rating: 4.7 },
+        { name: "Pesto Pasta", price: 150, img: "pasta5.jpg", description: "Pasta tossed in fresh basil pesto.", rating: 4.6 },
+        { name: "Pasta Primavera", price: 140, img: "pasta6.jpg", description: "Pasta with fresh seasonal vegetables.", rating: 4.5 }
+    ],
+    "Dosa House": [
+        { name: "Masala Dosa", price: 70, img: "dosa1.jpg", description: "Crispy dosa filled with spicy potato mix.", rating: 4.4 },
+        { name: "Plain Dosa", price: 50, img: "dosa2.jpg", description: "Simple and crispy dosa served with chutney.", rating: 4.1 },
+        { name: "Onion Dosa", price: 80, img: "dosa3.jpg", description: "Dosa topped with sautéed onions.", rating: 4.3 },
+        { name: "Rawa Dosa", price: 60, img: "dosa4.jpg", description: "Crispy dosa made from semolina.", rating: 4.5 },
+        { name: "Cheese Dosa", price: 90, img: "dosa5.jpg", description: "Filled with melted cheese and served hot.", rating: 4.6 },
+        { name: "Set Dosa", price: 75, img: "dosa6.jpg", description: "Thick and soft dosa served in sets.", rating: 4.2 }
+    ],
+    "Biryani Hub": [
+        { name: "Chicken Biryani", price: 200, img: "biryani1.jpg", description: "Aromatic rice with tender chicken pieces.", rating: 4.7 },
+        { name: "Veg Biryani", price: 150, img: "biryani2.jpg", description: "Spiced rice with mixed vegetables.", rating: 4.3 },
+        { name: "Mutton Biryani", price: 250, img: "biryani3.jpg", description: "Flavorful biryani made with mutton.", rating: 4.9 },
+        { name: "Egg Biryani", price: 180, img: "biryani4.jpg", description: "Biryani with boiled eggs and spices.", rating: 4.5
+         },
+        { name: "Hyderabadi Biryani", price: 300, img: "biryani5.jpg", description: "Authentic Hyderabadi biryani with rich flavors.", rating: 4.8 },
+        { name: "Paneer Biryani", price: 160, img: "biryani6.jpg", description: "Biryani with paneer cubes and spices.", rating: 4.4 }
+    ]
+};
 
-// Load Home Page on Initial Load
-document.addEventListener('DOMContentLoaded', () => {
-    renderHomePage();
-
-    // Setup Event Listeners for Navigation Links
-    document.getElementById('login-link').addEventListener('click', renderLoginPage);
-    document.getElementById('home-link').addEventListener('click', renderHomePage);
-    document.getElementById('cart-link').addEventListener('click', renderCartPage);
-    document.getElementById('signup-link').addEventListener('click', renderSignupPage);
-});
-
-// Render Home Page - Display All Restaurants
-function renderHomePage() {
-    const content = document.getElementById('content');
-    content.innerHTML = `
-        <h2>Available Restaurants</h2>
-        <input type="text" id="search-input" placeholder="Search by name..." oninput="filterRestaurants()">
-        <div id="restaurant-list"></div>
-    `;
-
-    renderRestaurantList(restaurants);
+// Display Home Content
+function showHome() {
+    document.getElementById("homeContent").style.display = "block";
+    document.getElementById("menu").style.display = "none";
+    document.getElementById("cart").style.display = "none";
+    document.getElementById("orderConfirmation").style.display = "none";
+    document.getElementById("breadcrumbs").innerText = "Home";
 }
 
-// Render Restaurant List
-function renderRestaurantList(restaurantList) {
-    const restaurantListDiv = document.getElementById('restaurant-list');
-    restaurantListDiv.innerHTML = '';
-
-    restaurantList.forEach(restaurant => {
-        const restaurantCard = document.createElement('div');
-        restaurantCard.classList.add('restaurant-card');
-        restaurantCard.innerHTML = `
-            <h3>${restaurant.name}</h3>
-            <p>Rating: ${restaurant.rating} ★ (${restaurant.reviews} reviews)</p>
-            <p>Cuisine: ${restaurant.cuisine}</p>
-            <button class="button" onclick="viewRestaurant(${restaurant.id})">View Menu</button>
-        `;
-        restaurantListDiv.appendChild(restaurantCard);
-    });
+// Display Menu
+function showRestaurant() {
+    document.getElementById("homeContent").style.display = "none";
+    document.getElementById("cart").style.display = "none";
+    document.getElementById("orderConfirmation").style.display = "none";
+    loadRestaurantMenu();
+    document.getElementById("breadcrumbs").innerText = "Restaurant";
 }
 
-// Filter Restaurants by Name
-function filterRestaurants() {
-    const searchValue = document.getElementById('search-input').value.toLowerCase();
-    const filteredRestaurants = restaurants.filter(r => r.name.toLowerCase().includes(searchValue));
-    renderRestaurantList(filteredRestaurants);
-}
+// Load Restaurant Menu
+function loadRestaurantMenu() {
+    const menuDiv = document.getElementById("menu");
+    menuDiv.style.display = "block";
+    menuDiv.innerHTML = ""; // Clear previous menu
 
-// View Restaurant Menu
-function viewRestaurant(restaurantId) {
-    const restaurant = restaurants.find(r => r.id === restaurantId);
-    const content = document.getElementById('content');
-
-    content.innerHTML = `<h2>${restaurant.name} Menu</h2>`;
-    restaurant.menu.forEach(item => {
-        const menuItemCard = document.createElement('div');
-        menuItemCard.classList.add('menu-item-card');
-        menuItemCard.innerHTML = `
-            <span>${item.name} - $${item.price}</span>
-            <button class="button" onclick="addToCart('${restaurant.name}', '${item.name}', ${item.price})">Add to Cart</button>
-        `;
-        content.appendChild(menuItemCard);
-    });
-}
-
-// Add Item to Cart
-function addToCart(restaurantName, itemName, price) {
-    cart.push({ restaurantName, itemName, price });
-    alert(`${itemName} added to cart.`);
-}
-
-// Render Cart Page
-function renderCartPage() {
-    const content = document.getElementById('content');
-    content.innerHTML = '<h2>Your Cart</h2>';
-
-    if (cart.length === 0) {
-        content.innerHTML += '<p>Your cart is empty.</p>';
-        return;
+    for (const restaurant in menus) {
+        const restaurantDiv = document.createElement("div");
+        restaurantDiv.innerHTML = `<h3>${restaurant}</h3>`;
+        
+        menus[restaurant].slice(0, 8).forEach(item => {
+            const itemDiv = document.createElement("div");
+            itemDiv.className = "menu-item";
+            itemDiv.innerHTML = `
+                <img src="${item.img}" alt="${item.name}">
+                <h4>${item.name} - ₹${item.price}</h4>
+                <p>${item.description}</p>
+                <p>Rating: ${item.rating} ⭐</p>
+                <button onclick="addToCart('${restaurant}', '${item.name}', ${item.price})">Add to Cart</button>
+            `;
+            restaurantDiv.appendChild(itemDiv);
+        });
+        
+        menuDiv.appendChild(restaurantDiv);
     }
-
-    const cartList = document.createElement('ul');
-    cart.forEach(item => {
-        const listItem = document.createElement('li');
-        listItem.innerHTML = `
-            ${item.itemName} from ${item.restaurantName} - $${item.price}
-            <button class="remove-button" onclick="removeFromCart('${item.itemName}')">Remove</button>
-        `;
-        cartList.appendChild(listItem);
-    });
-    content.appendChild(cartList);
-
-    const total = cart.reduce((sum, item) => sum + item.price, 0);
-    content.innerHTML += `<p>Total: $${total}</p>`;
-    content.innerHTML += '<button class="button" onclick="checkout()">Proceed to Checkout</button>';
 }
 
-// Remove Item from Cart
-function removeFromCart(itemName) {
-    cart = cart.filter(item => item.itemName !== itemName);
-    renderCartPage();
+// Add to Cart
+function addToCart(restaurant, foodName, price) {
+    if (!cart[foodName]) {
+        cart[foodName] = { restaurant, price, quantity: 0 };
+    }
+    cart[foodName].quantity++;
+    totalPrice += price;
+
+    updateCart();
 }
 
-// Checkout Functionality
+// Update Cart Display
+function updateCart() {
+    const cartItemsList = document.getElementById("cartItems");
+    cartItemsList.innerHTML = ""; // Clear previous items
+
+    for (const foodName in cart) {
+        const item = cart[foodName];
+        const listItem = document.createElement("li");
+        listItem.innerText = `${foodName} (x${item.quantity}) - ₹${item.price}`;
+        cartItemsList.appendChild(listItem);
+    }
+    
+    document.getElementById("totalPrice").innerText = `Total Price: ₹${totalPrice}`;
+}
+
+// Show Cart
+function showCart() {
+    document.getElementById("homeContent").style.display = "none";
+    document.getElementById("menu").style.display = "none";
+    document.getElementById("orderConfirmation").style.display = "none";
+    document.getElementById("cart").style.display = "block";
+    document.getElementById("breadcrumbs").innerText = "Cart";
+}
+
+// Checkout Process
 function checkout() {
-    alert('Thank you for your order!');
-    cart = [];  // Clear the cart after checkout
-    renderHomePage();  // Redirect to Home Page
+    showOrder();
 }
 
-// Render Login Page
-function renderLoginPage() {
-    const content = document.getElementById('content');
-    content.innerHTML = `
-        <h2>Login</h2>
-        <form id="login-form">
-            <label>Username</label>
-            <input type="text" id="login-username" required>
-            <label>Password</label>
-            <input type="password" id="login-password" required>
-            <button class="button" type="submit">Login</button>
-        </form>
-    `;
+// Show Order Confirmation
+function showOrder() {
+    document.getElementById("homeContent").style.display = "none";
+    document.getElementById("menu").style.display = "none";
+    document.getElementById("cart").style.display = "none";
+    document.getElementById("orderConfirmation").style.display = "block";
 
-    document.getElementById('login-form').addEventListener('submit', loginUser);
+    let orderDetails = "Your order has been placed for:\n";
+    for (const foodName in cart) {
+        const item = cart[foodName];
+        orderDetails += `${item.quantity} x ${foodName} from ${item.restaurant}\n`;
+    }
+    orderDetails += `Total Price: ₹${totalPrice}`;
+    document.getElementById("orderDetails").innerText = orderDetails;
+}
+
+// Confirm Order
+function confirmOrder() {
+    alert("Your order has been confirmed!");
+    // Reset cart and total price
+    cart = {};
+    totalPrice = 0;
+    updateCart();
+    showHome();
 }
