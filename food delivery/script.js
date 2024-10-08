@@ -8,14 +8,14 @@ const menus = {
         { name: "Pepperoni Pizza", price: 150, img: "pepporoni.jpg", description: "Spicy pepperoni slices on a cheesy base.", rating: 4.7 },
         { name: "Vegetable Pizza", price: 100, img: "vegpizza.jpg", description: "Fresh vegetables on a tomato base.", rating: 4.3 },
         { name: "BBQ Chicken Pizza", price: 180, img: "chickenpizza.jpg", description: "BBQ chicken with red onions and cilantro.", rating: 4.8 },
-        { name: "Four Cheese Pizza", price: 200, img: "cheesepizza.jpg", description: "A blend of four delicious cheeses.", rating: 4.6 },
-        { name: "Hawaiian Pizza", price: 160, img: "pizza6.jpg", description: "Topped with ham and pineapple.", rating: 4.4 }
+        { name: "Four Cheese Pizza", price: 200, img: "cheesepizza.jpg", description: "A blend of four delicious cheeses.", rating: 4.6 }
+       
     ],
     "Burger Joint": [
-        { name: "Cheeseburger", price: 100, img: "burger1.jpg", description: "Juicy beef patty with cheddar cheese.", rating: 4.4 },
-        { name: "Veggie Burger", price: 80, img: "burger2.jpg", description: "Delicious plant-based burger.", rating: 4.2 },
-        { name: "Bacon Burger", price: 120, img: "burger3.jpg", description: "Loaded with crispy bacon and cheese.", rating: 4.6 },
-        { name: "Spicy Chicken Burger", price: 110, img: "burger4.jpg", description: "Crispy chicken with spicy mayo.", rating: 4.5 },
+        { name: "Cheeseburger", price: 100, img: "cheeseburger.jpg", description: "Juicy beef patty with cheddar cheese.", rating: 4.4 },
+        { name: "Veggie Burger", price: 80, img: "vegburger.jpg", description: "Delicious plant-based burger.", rating: 4.2 },
+       
+       { name: "Spicy Chicken Burger", price: 110, img: "burger4.jpg", description: "Crispy chicken with spicy mayo.", rating: 4.5 },
         { name: "BBQ Burger", price: 130, img: "burger5.jpg", description: "BBQ sauce with onion rings.", rating: 4.3 },
         { name: "Mushroom Swiss Burger", price: 140, img: "burger6.jpg", description: "Mushrooms and Swiss cheese.", rating: 4.4 }
     ],
