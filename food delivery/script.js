@@ -1,5 +1,4 @@
-let cart = {};
-let totalPrice = 0;
+e = 0;
 
 // Sample menus for each restaurant with descriptions and ratings
 const menus = {
@@ -15,21 +14,21 @@ const menus = {
         { name: "Cheeseburger", price: 100, img: "cheeseburger.jpg", description: "Juicy beef patty with cheddar cheese.", rating: 4.4 },
         { name: "Veggie Burger", price: 80, img: "vegburger.jpg", description: "Delicious plant-based burger.", rating: 4.2 },
        
-       { name: "Spicy Chicken Burger", price: 110, img: "burger4.jpg", description: "Crispy chicken with spicy mayo.", rating: 4.5 },
-        { name: "BBQ Burger", price: 130, img: "burger5.jpg", description: "BBQ sauce with onion rings.", rating: 4.3 },
-        { name: "Mushroom Swiss Burger", price: 140, img: "burger6.jpg", description: "Mushrooms and Swiss cheese.", rating: 4.4 }
+       { name: "Spicy Chicken Burger", price: 110, img: "chickenburger.jpg", description: "Crispy chicken with spicy mayo.", rating: 4.5 },
+        { name: "BBQ Burger", price: 130, img: "bbqburger.jpg", description: "BBQ sauce with onion rings.", rating: 4.3 },
+        { name: "Mushroom Swiss Burger", price: 140, img: "mushroomburger.jpg", description: "Mushrooms and Swiss cheese.", rating: 4.4 }
     ],
     "Pasta House": [
-        { name: "Spaghetti Bolognese", price: 140, img: "pasta1.jpg", description: "Traditional Italian spaghetti with meat sauce.", rating: 4.8 },
+        { name: "Spaghetti Bolognese", price: 140, img: "pasta.jpg", description: "Traditional Italian spaghetti with meat sauce.", rating: 4.8 },
         { name: "Penne Alfredo", price: 120, img: "pasta2.jpg", description: "Creamy Alfredo sauce with penne pasta.", rating: 4.5 },
         { name: "Fettuccine Carbonara", price: 130, img: "pasta3.jpg", description: "Classic carbonara with pancetta.", rating: 4.6 },
-        { name: "Lasagna", price: 160, img: "pasta4.jpg", description: "Layers of pasta with meat and cheese.", rating: 4.7 },
-        { name: "Pesto Pasta", price: 150, img: "pasta5.jpg", description: "Pasta tossed in fresh basil pesto.", rating: 4.6 },
+        { name: "Lasagna", price: 160, img: "lasagna.jpg", description: "Layers of pasta with meat and cheese.", rating: 4.7 },
+        { name: "Pesto Pasta", price: 150, img: "pestopasta.jpg", description: "Pasta tossed in fresh basil pesto.", rating: 4.6 },
         { name: "Pasta Primavera", price: 140, img: "pasta6.jpg", description: "Pasta with fresh seasonal vegetables.", rating: 4.5 }
     ],
     "Dosa House": [
-        { name: "Masala Dosa", price: 70, img: "dosa1.jpg", description: "Crispy dosa filled with spicy potato mix.", rating: 4.4 },
-        { name: "Plain Dosa", price: 50, img: "dosa2.jpg", description: "Simple and crispy dosa served with chutney.", rating: 4.1 },
+        { name: "Masala Dosa", price: 70, img: "masaladosa.jpg", description: "Crispy dosa filled with spicy potato mix.", rating: 4.4 },
+        { name: "Plain Dosa", price: 50, img: "plaindosa.jpg", description: "Simple and crispy dosa served with chutney.", rating: 4.1 },
         { name: "Onion Dosa", price: 80, img: "dosa3.jpg", description: "Dosa topped with sautéed onions.", rating: 4.3 },
         { name: "Rawa Dosa", price: 60, img: "dosa4.jpg", description: "Crispy dosa made from semolina.", rating: 4.5 },
         { name: "Cheese Dosa", price: 90, img: "dosa5.jpg", description: "Filled with melted cheese and served hot.", rating: 4.6 },
