@@ -14,9 +14,9 @@ document.addEventListener('DOMContentLoaded', () => {
     renderHomePage();
 
     // Setup Event Listeners for Navigation Links
+    document.getElementById('login-link').addEventListener('click', renderLoginPage);
     document.getElementById('home-link').addEventListener('click', renderHomePage);
     document.getElementById('cart-link').addEventListener('click', renderCartPage);
-    document.getElementById('login-link').addEventListener('click', renderLoginPage);
     document.getElementById('signup-link').addEventListener('click', renderSignupPage);
 });
 
