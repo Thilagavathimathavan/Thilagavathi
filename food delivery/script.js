@@ -6,9 +6,9 @@ const menus = {
     "Pizza Place": [
         { name: "Margherita Pizza", price: 120, img: "pizza.jpg", description: "Classic pizza with mozzarella and basil.", rating: 4.5 },
         { name: "Pepperoni Pizza", price: 150, img: "pepporoni.jpg", description: "Spicy pepperoni slices on a cheesy base.", rating: 4.7 },
-        { name: "Vegetable Pizza", price: 100, img: "pizza3.jpg", description: "Fresh vegetables on a tomato base.", rating: 4.3 },
-        { name: "BBQ Chicken Pizza", price: 180, img: "pizza4.jpg", description: "BBQ chicken with red onions and cilantro.", rating: 4.8 },
-        { name: "Four Cheese Pizza", price: 200, img: "pizza5.jpg", description: "A blend of four delicious cheeses.", rating: 4.6 },
+        { name: "Vegetable Pizza", price: 100, img: "vegpizza.jpg", description: "Fresh vegetables on a tomato base.", rating: 4.3 },
+        { name: "BBQ Chicken Pizza", price: 180, img: "chickenpizza.jpg", description: "BBQ chicken with red onions and cilantro.", rating: 4.8 },
+        { name: "Four Cheese Pizza", price: 200, img: "cheesepizza.jpg", description: "A blend of four delicious cheeses.", rating: 4.6 },
         { name: "Hawaiian Pizza", price: 160, img: "pizza6.jpg", description: "Topped with ham and pineapple.", rating: 4.4 }
     ],
     "Burger Joint": [
