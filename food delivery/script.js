@@ -4,7 +4,7 @@ let totalPrice = 0;
 // Sample menus for each restaurant with descriptions and ratings
 const menus = {
     "Pizza Place": [
-        { name: "Margherita Pizza", price: 120, img: "pizza1.jpg", description: "Classic pizza with mozzarella and basil.", rating: 4.5 },
+        { name: "Margherita Pizza", price: 120, img: "pizza.jpg", description: "Classic pizza with mozzarella and basil.", rating: 4.5 },
         { name: "Pepperoni Pizza", price: 150, img: "pizza2.jpg", description: "Spicy pepperoni slices on a cheesy base.", rating: 4.7 },
         { name: "Vegetable Pizza", price: 100, img: "pizza3.jpg", description: "Fresh vegetables on a tomato base.", rating: 4.3 },
         { name: "BBQ Chicken Pizza", price: 180, img: "pizza4.jpg", description: "BBQ chicken with red onions and cilantro.", rating: 4.8 },
