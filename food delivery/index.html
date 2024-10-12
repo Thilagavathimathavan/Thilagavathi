@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Flight</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <h1>Food Flight</h1>
+        <nav>
+             <a href="index.html">Home</a>
+            <a href="cart.html">Cart</a>
+            <a href="order.html">Place Order</a>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <section class="restaurants">
+            <h2>Top Restaurants for you!!!</h2>
+            <div class="restaurant-list">
+                <!-- Restaurant Items -->
+                <div class="restaurant-container">
+                    <h3 class="restaurant-name">Domino's Pizza</h3>
+                    
+                    <p>Italian, Pizza</p>
+                    <p>Egmore</p>
+                    <p>30-40 mins</p>
+                    <button class="view-foods">View Menu</button>
+                    <div class="food-list hidden">
+                        <div class="food-item">
+                            <img src="https://th.bing.com/th/id/OIP.aUrNLbf-dtMfuY2kGU3qsQHaFF?w=298&h=205&c=7&r=0&o=5&dpr=1.2&pid=1.7" alt="Margherita Pizza">
+                            <div class="food-details">
+                                <h4>Margherita Pizza</h4>
+                                <p>Price: ₹320.00</p>
+                               
+                                <p>Rating: <span class="rating" data-food-id="1">4.5</span> ★</p>
+                                <button class="add-to-cart" data-food-id="1">Add to Cart</button>
+                            </div>
+                        </div>
+                        <div class="food-item">
+                            <img src="https://th.bing.com/th/id/OIP.erUtJTDiOh-z8A3d9XbIZgHaFF?w=270&h=186&c=7&r=0&o=5&dpr=1.2&pid=1.7" alt="Margherita Pizza">
+                            <div class="food-details">
+                                <h4>Chicken Pizza</h4>
+                                <p>Price: ₹370.00</p>
+                                
+                                <p>Rating: <span class="rating" data-food-id="2">4.5</span> ★</p>
+                                <button class="add-to-cart" data-food-id="2">Add to Cart</button>
+                            </div>
+                        </div>
+                        <div class="food-item">
+                            <img src="https://th.bing.com/th/id/OIP.3LpHfN8ShZck6d5b5c9SJwHaFF?w=240&h=180&c=7&r=0&o=5&dpr=1.2&pid=1.7" alt="Margherita Pizza">
+                            <div class="food-details">
+                                <h4>Veggie Fiesta</h4>
+                                <p>Price: ₹190.00</p>
+                               
+                                <p>Rating: <span class="rating" data-food-id="3">4.5</span> ★</p>
+                                <button class="add-to-cart" data-food-id="3">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="restaurant-container">
+                    <h3 class="restaurant-name">KEBAB FACTORY</h3>
+                    <p>North Indian,Kebab</p>
+                    <p>Sowkarpet</p>
+                    <p> 25-35 mins</p>
+                    <button class="view-foods">View Menu</button>
+                    <div class="food-list hidden">
+                        <div class="food-item">
+                            <img src="https://th.bing.com/th/id/OIP.wCyAC7b_bSXeLXRyfsckbwAAAA?w=245&h=180&c=7&r=0&o=5&dpr=1.2&pid=1.7" alt="Salmon Sushi">
+                            <div class="food-details">
+                                <h4>Tangri kebab</h4>
+                                <p>Price: ₹820</p>
+                             
+                                <p>Rating: <span class="rating" data-food-id="4">4.7</span> ★</p>
+                                <button class="add-to-cart" data-food-id="4">Add to Cart</button>
+                            </div>
+                        </div> 
+                           <div class="food-item">
+                              <img src="https://th.bing.com/th/id/OIP.EzvqrqYRItOjB7koSydCMgHaD8?w=335&h=180&c=7&r=0&o=5&dpr=1.2&pid=1.7" alt="Salmon Sushi">
+                             <div class="food-details">
+                                <h4>Seekh kebab</h4>
+                                <p>Price: ₹870</p>
+                              
+                                <p>Rating: <span class="rating" data-food-id="5">4.7</span> ★</p>
+                                <button class="add-to-cart" data-food-id="5">Add to Cart</button>
+                             </div>
+                           </div>
+                     
+                  
+                           <div class="food-item">
+                              <img src="https://th.bing.com/th/id/OIP.25gRKSd5smoFPXuKhk__jQHaEc?w=291&h=180&c=7&r=0&o=5&dpr=1.2&pid=1.7" alt="Salmon Sushi">
+                            <div class="food-details">
+                                <h4>Galouti kebab</h4>
+                                <p>Price: ₹930</p>
+                             
+                                <p>Rating: <span class="rating" data-food-id="6">4.7</span> ★</p>
+                                <button class="add-to-cart" data-food-id="6">Add to Cart</button>
+                            </div>
+                               
+                        </div>
+                    </div>
+                </div>
+
+                <div class="restaurant-container">
+                    <h3 class="restaurant-name">BURGER KING</h3>
+                    <p> American, Burgers</p>
+                    <p>Nungambakkam</p>
+                    <p>20-30 mins</p>
+                    <button class="view-foods">View Menu</button>
+                    <div class="food-list hidden">
+                        <div class="food-item">
+                            <img src="https://th.bing.com/th/id/OIP.b12Vgm9PXpoLhlmHWXF5swHaE8?w=268&h=180&c=7&r=0&o=5&dpr=1.2&pid=1.7" alt="Classic Burger">
+                            <div class="food-details">
+                                <h4>Crispy Veg Burger</h4>
+                                <p>Price: ₹80.00</p>
+                                
+                                <p>Rating: <span class="rating" data-food-id="7">4.3</span> ★</p>
+                                <button class="add-to-cart" data-food-id="7">Add to Cart</button>
+                            </div>
+                        </div>
+                           <div class="food-item">
+                            <img src="https://th.bing.com/th/id/OIP.IIrnYQw1hUC7D3IAwFOkNgHaHa?w=198&h=198&c=7&r=0&o=5&dpr=1.2&pid=1.7" alt="Classic Burger">
+                            <div class="food-details">
+                                <h4>Crispy Chicken  Burger</h4>
+                                <p>Price: ₹180.00</p>
+                             
+                                <p>Rating: <span class="rating" data-food-id="8">4.3</span> ★</p>
+                                <button class="add-to-cart" data-food-id="8">Add to Cart</button>
+                            </div>
+                           </div>
+                           <div class="food-item">
+                            <img src="https://th.bing.com/th/id/OIP.t7wc3qYhiakn2FUW10R84AHaE7?w=260&h=180&c=7&r=0&o=5&dpr=1.2&pid=1.7" alt="Classic Burger">
+                            <div class="food-details">
+                                <h4>Cheese Chicken Burger</h4>
+                                <p>Price: ₹210.00</p>
+                                
+                                <p>Rating: <span class="rating" data-food-id="9">4.3</span> ★</p>
+                                <button class="add-to-cart" data-food-id="9">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="restaurant-container">
+                    <h3 class="restaurant-name">A2B</h3>
+                    
+                    <p>SouthIndian,Tiffin, Meals</p>
+                    <p>OMR Navalur</p>
+                    <p>30-40 mins</p>
+                    <button class="view-foods">View Menu</button>
+                    <div class="food-list hidden">
+                        <div class="food-item">
+                            <img src="https://th.bing.com/th/id/OIP.MI997dcGtg3MmkVoHWhjAwHaGO?w=200&h=180&c=7&r=0&o=5&dpr=1.2&pid=1.7" alt="Margherita Pizza">
+                            <div class="food-details">
+                                <h4>Mini Tiffin</h4>
+                                <p>Price: ₹120.00</p>
+                              
+                                <p>Rating: <span class="rating" data-food-id="10">4.5</span> ★</p>
+                                <button class="add-to-cart" data-food-id="10">Add to Cart</button>
+                            </div>
+                        </div>
+                        <div class="food-item">
+                               <img src="https://th.bing.com/th/id/OIP.UCmg_JT70JRRY1YM8UyR6QHaE8?w=273&h=181&c=7&r=0&o=5&dpr=1.2&pid=1.7" alt="Margherita Pizza">
+                            <div class="food-details">
+                                <h4>Ghee Roast</h4>
+                                <p>Price: ₹120.00</p>
+                               
+                                <p>Rating: <span class="rating" data-food-id="11">4.5</span> ★</p>
+                                <button class="add-to-cart" data-food-id="11">Add to Cart</button>
+                            </div>
+                        </div>
+                        
+                           <div class="food-item">
+                               <img src="https://th.bing.com/th/id/OIP.MBMy4KW-pJsiiyAaqhWGEgHaHk?w=175&h=180&c=7&r=0&o=5&dpr=1.2&pid=1.7" alt="Margherita Pizza">
+                            <div class="food-details">
+                                <h4>Veg Meals</h4>
+                                <p>Price: ₹220.00</p>
+                               
+                                <p>Rating: <span class="rating" data-food-id="12">4.5</span> ★</p>
+                                <button class="add-to-cart" data-food-id="12">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                 <div class="restaurant-container">
+                    <h3 class="restaurant-name">BananaLeaf</h3>
+                    
+                    <p>SouthIndian,Biriyani, Meals</p>
+                    <p>Medavakkam</p>
+                    <p>20-30 mins</p>
+                    <button class="view-foods">View Menu</button>
+                    <div class="food-list hidden">
+                        <div class="food-item">
+                            <img src="https://th.bing.com/th/id/OIP.CO3A6Pqr-B1qdRQsvgaLpAHaHa?w=178&h=180&c=7&r=0&o=5&dpr=1.2&pid=1.7" alt="Margherita Pizza">
+                            <div class="food-details">
+                                <h4>Chettinad Chicken Biriyani</h4>
+                                <p>Price: ₹260.00</p>
+                               
+                                <p>Rating: <span class="rating" data-food-id="13">4.5</span> ★</p>
+                                <button class="add-to-cart" data-food-id="13">Add to Cart</button>
+                            </div>
+                        </div>
+                        <div class="food-item">
+                               <img src="https://th.bing.com/th/id/OIP.CtUz8EF2c4NsSgLug6HlIQHaGM?w=210&h=180&c=7&r=0&o=5&dpr=1.2&pid=1.7" alt="Margherita Pizza">
+                            <div class="food-details">
+                                <h4>Ghee Roast Chicken Curry</h4>
+                                <p>Price: ₹320.00</p>
+                               
+                                <p>Rating: <span class="rating" data-food-id="14">4.5</span> ★</p>
+                                <button class="add-to-cart" data-food-id="14">Add to Cart</button>
+                            </div>
+                        </div>
+                        
+                           <div class="food-item">
+                               <img src="https://th.bing.com/th/id/OIP.APmvHWlru2KHvYosM8m-6AHaHa?w=147&h=181&c=7&r=0&o=5&dpr=1.2&pid=1.7" alt="Margherita Pizza">
+                            <div class="food-details">
+                                <h4>Fish Fry</h4>
+                                <p>Price: ₹250.00</p>
+                               
+                                <p>Rating: <span class="rating" data-food-id="15">4.5</span> ★</p>
+                                <button class="add-to-cart" data-food-id="15">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        
+    </main>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
