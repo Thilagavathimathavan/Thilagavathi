@@ -1,3 +1,4 @@
+// Data for restaurants and food items
 const foodData = [
     { id: 1, name: 'Margherita Pizza', image:"https://th.bing.com/th/id/OIP.aUrNLbf-dtMfuY2kGU3qsQHaFF?w=298&h=205&c=7&r=0&o=5&dpr=1.2&pid=1.7",price: 320.00, orders: 0, rating: 4.5, restaurant: ' Dominos Pizza ' },
     { id: 2, name: 'Chicken Pizza', image:"https://th.bing.com/th/id/OIP.erUtJTDiOh-z8A3d9XbIZgHaFF?w=270&h=186&c=7&r=0&o=5&dpr=1.2&pid=1.7",price: 370.00, orders: 0, rating: 4.2, restaurant: 'Dominos Pizza ' },
@@ -75,4 +76,4 @@ function calculateTotal() {
 // Function to proceed to checkout
 function proceedToCheckout() {
     window.location.href = "order.html";
-}
+        }
