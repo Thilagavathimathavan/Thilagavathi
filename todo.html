@@ -15,7 +15,14 @@
         </form>
         <ul id="task-list" class="task-list"></ul>
     </div>
-
+    <style>
+        body{
+            text-align:center;
+           }
+            h2{
+                background-color:lightgray;
+            }
+     </style>       
     <script>
         // Array to hold tasks
         let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
