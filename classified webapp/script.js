@@ -1,58 +1,44 @@
-let users = [];
-let listings = [];
+document.addEventListener("DOMContentLoaded", () => {
+    const addListingBtn = document.getElementById("addListingBtn");
+    const modal = document.getElementById("addListingModal");
+    const closeModal = document.querySelector(".close");
+    const listingForm = document.getElementById("listingForm");
+    const listingContainer = document.getElementById("listingContainer");
 
-// Event listener for registration form submission
-document.getElementById('registerForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    const username = document.getElementById('regUsername').value;
-    const email = document.getElementById('regEmail').value;
-    const password = document.getElementById('regPassword').value;
+    // Open modal
+    addListingBtn.onclick = () => modal.style.display = "block";
 
-    // Add the new user to the users array
-    users.push({ username, email, password });
-    alert('Registration successful!');
+    // Close modal
+    closeModal.onclick = () => modal.style.display = "none";
+    window.onclick = (event) => {
+        if (event.target === modal) {
+            modal.style.display = "none";
+        }
+    };
 
-    // Clear the form
-    document.getElementById('registerForm').reset();
-});
+    // Handle form submission
+    listingForm.onsubmit = (e) => {
+        e.preventDefault();
+        
+        const title = document.getElementById("title").value;
+        const description = document.getElementById("description").value;
+        const price = document.getElementById("price").value;
+        const imageFile = document.getElementById("image").files[0];
+        const type = document.getElementById("type").value;
+        const imageUrl = URL.createObjectURL(imageFile);
 
-// Event listener for product listing form submission
-document.getElementById('listingForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    const productName = document.getElementById('productName').value;
-    const productCategory = document.getElementById('productCategory').value;
-    const productPrice = document.getElementById('productPrice').value;
-    const productDescription = document.getElementById('productDescription').value;
-
-    // Add the new listing to the listings array
-    listings.push({ productName, productCategory, productPrice, productDescription });
-
-    // Clear the form
-    document.getElementById('listingForm').reset();
-
-    // Display updated product listings
-    displayListings();
-});
-
-// Function to display product listings
-function displayListings() {
-    const productList = document.getElementById('productList');
-    productList.innerHTML = '';
-
-    listings.forEach(listing => {
-        const productCard = document.createElement('div');
-        productCard.classList.add('product-card');
-        productCard.innerHTML = `
-            <h3>${listing.productName}</h3>
-            <p><strong>Category:</strong> ${listing.productCategory}</p>
-            <p><strong>Price:</strong> $${listing.productPrice}</p>
-            <p>${listing.productDescription}</p>
+        const listing = document.createElement("div");
+        listing.className = "listing";
+        listing.innerHTML = `
+            <img src="${imageUrl}" alt="${title}">
+            <h3>${title}</h3>
+            <p>${description}</p>
+            <p>Price: $${price}</p>
+            <p>Type: ${type === "sell" ? "For Sale" : "Looking to Buy"}</p>
         `;
-        productList.appendChild(productCard);
-    });
-}
 
-// Event listeners to toggle registration form visibility
-document.getElementById('registerBtn').addEventListener('click', function() {
-    document.getElementById('registration').classList.toggle('hidden');
+        listingContainer.appendChild(listing);
+        modal.style.display = "none";
+        listingForm.reset();
+    };
 });
