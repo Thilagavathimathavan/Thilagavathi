@@ -5,6 +5,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const listingForm = document.getElementById("listingForm");
     const listingContainer = document.getElementById("listingContainer");
 
+    // Load existing listings from local storage
+    loadListings();
+
     // Open modal
     addListingBtn.onclick = () => modal.style.display = "block";
 
@@ -27,18 +30,42 @@ document.addEventListener("DOMContentLoaded", () => {
         const type = document.getElementById("type").value;
         const imageUrl = URL.createObjectURL(imageFile);
 
-        const listing = document.createElement("div");
-        listing.className = "listing";
-        listing.innerHTML = `
-            <img src="${imageUrl}" alt="${title}">
-            <h3>${title}</h3>
-            <p>${description}</p>
-            <p>Price: $${price}</p>
-            <p>Type: ${type === "sell" ? "For Sale" : "Looking to Buy"}</p>
-        `;
+        const listing = {
+            title,
+            description,
+            price,
+            imageUrl,
+            type,
+        };
 
-        listingContainer.appendChild(listing);
+        // Save to local storage
+        saveListing(listing);
         modal.style.display = "none";
         listingForm.reset();
     };
+
+    function saveListing(listing) {
+        let listings = JSON.parse(localStorage.getItem("listings")) || [];
+        listings.push(listing);
+        localStorage.setItem("listings", JSON.stringify(listings));
+        displayListing(listing);
+    }
+
+    function loadListings() {
+        const listings = JSON.parse(localStorage.getItem("listings")) || [];
+        listings.forEach(displayListing);
+    }
+
+    function displayListing(listing) {
+        const listingDiv = document.createElement("div");
+        listingDiv.className = "listing";
+        listingDiv.innerHTML = `
+            <img src="${listing.imageUrl}" alt="${listing.title}">
+            <h3>${listing.title}</h3>
+            <p>${listing.description}</p>
+            <p>Price: $${listing.price}</p>
+            <p>Type: ${listing.type === "sell" ? "For Sale" : "Looking to Buy"}</p>
+        `;
+        listingContainer.appendChild(listingDiv);
+    }
 });
