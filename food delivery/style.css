@@ -27,7 +27,7 @@ main {
 
 .restaurants, .cart {
     width: 45%;
-    background-color: lightblue;
+    background-color: white;
     padding: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
