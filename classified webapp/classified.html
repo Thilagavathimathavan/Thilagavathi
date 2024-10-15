@@ -8,38 +8,32 @@
 </head>
 <body>
     <header>
-        <h1>Classifieds - Buy and Sell Used Products</h1>
-        <nav>
-            <button id="registerBtn">Register</button>
-            <button id="loginBtn">Login</button>
-        </nav>
+        <h1>Classifieds App</h1>
+        <button id="addListingBtn">Add Listing</button>
     </header>
 
-    <section id="registration" class="hidden">
-        <h2>Register</h2>
-        <form id="registerForm">
-            <input type="text" id="regUsername" placeholder="Username" required>
-            <input type="email" id="regEmail" placeholder="Email" required>
-            <input type="password" id="regPassword" placeholder="Password" required>
-            <button type="submit">Register</button>
-        </form>
-    </section>
+    <main>
+        <div id="listingContainer"></div>
+    </main>
 
-    <section id="listing-section">
-        <h2>Post a Product</h2>
-        <form id="listingForm">
-            <input type="text" id="productName" placeholder="Product Name" required>
-            <input type="text" id="productCategory" placeholder="Category" required>
-            <input type="number" id="productPrice" placeholder="Price" required>
-            <textarea id="productDescription" placeholder="Description"></textarea>
-            <button type="submit">Add Listing</button>
-        </form>
-    </section>
-
-    <section id="listings">
-        <h2>Product Listings</h2>
-        <div id="productList"></div>
-    </section>
+    <div id="addListingModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Add Listing</h2>
+            <form id="listingForm">
+                <input type="text" id="title" placeholder="Product Title" required>
+                <input type="text" id="description" placeholder="Product Description" required>
+                <input type="number" id="price" placeholder="Price" required>
+                <input type="file" id="image" accept="image/*" required>
+                <select id="type" required>
+                    <option value="">Select Type</option>
+                    <option value="sell">Sell</option>
+                    <option value="buy">Buy</option>
+                </select>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
