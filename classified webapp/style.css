@@ -7,8 +7,10 @@ body {
 header {
     display: flex;
     justify-content: space-between;
+    text-align:center;
     align-items: center;
     margin-bottom: 20px;
+    background-color:lightgray;
 }
 
 #listingContainer {
