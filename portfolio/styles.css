@@ -63,6 +63,7 @@ section {
 }
 img{
     display:inline-block;
+    padding:20px;
 }
 
 .project {
