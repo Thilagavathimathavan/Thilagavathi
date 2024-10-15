@@ -7,10 +7,9 @@ body {
 header {
     display: flex;
     justify-content: space-between;
-    text-align:center;
     align-items: center;
     margin-bottom: 20px;
-    background-color:lightgray;
+    background-color:gray;
 }
 
 #listingContainer {
@@ -65,3 +64,5 @@ img {
     text-decoration: none;
     cursor: pointer;
 }
+
+
