@@ -1,71 +1,87 @@
-document.addEventListener("DOMContentLoaded", () => {
-    const addListingBtn = document.getElementById("addListingBtn");
-    const modal = document.getElementById("addListingModal");
-    const closeModal = document.querySelector(".close");
-    const listingForm = document.getElementById("listingForm");
-    const listingContainer = document.getElementById("listingContainer");
+// Register form handler
+document.getElementById('registerForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    let name = document.getElementById('name').value;
+    let email = document.getElementById('email').value;
+    let password = document.getElementById('password').value;
 
-    // Load existing listings from local storage
-    loadListings();
+    // Store user data locally (replace with backend integration later)
+    localStorage.setItem('user', JSON.stringify({name, email, password}));
+    alert('Registration successful!');
+});
 
-    // Open modal
-    addListingBtn.onclick = () => modal.style.display = "block";
+// Login form handler
+document.getElementById('loginForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    let emailLogin = document.getElementById('emailLogin').value;
+    let passwordLogin = document.getElementById('passwordLogin').value;
 
-    // Close modal
-    closeModal.onclick = () => modal.style.display = "none";
-    window.onclick = (event) => {
-        if (event.target === modal) {
-            modal.style.display = "none";
-        }
-    };
+    let user = JSON.parse(localStorage.getItem('user'));
 
-    // Handle form submission
-    listingForm.onsubmit = (e) => {
-        e.preventDefault();
-        
-        const title = document.getElementById("title").value;
-        const description = document.getElementById("description").value;
-        const price = document.getElementById("price").value;
-        const imageFile = document.getElementById("image").files[0];
-        const type = document.getElementById("type").value;
-        const imageUrl = URL.createObjectURL(imageFile);
-
-        const listing = {
-            title,
-            description,
-            price,
-            imageUrl,
-            type,
-        };
-
-        // Save to local storage
-        saveListing(listing);
-        modal.style.display = "none";
-        listingForm.reset();
-    };
-
-    function saveListing(listing) {
-        let listings = JSON.parse(localStorage.getItem("listings")) || [];
-        listings.push(listing);
-        localStorage.setItem("listings", JSON.stringify(listings));
-        displayListing(listing);
-    }
-
-    function loadListings() {
-        const listings = JSON.parse(localStorage.getItem("listings")) || [];
-        listings.forEach(displayListing);
-    }
-
-    function displayListing(listing) {
-        const listingDiv = document.createElement("div");
-        listingDiv.className = "listing";
-        listingDiv.innerHTML = `
-            <img src="${listing.imageUrl}" alt="${listing.title}">
-            <h3>${listing.title}</h3>
-            <p>${listing.description}</p>
-            <p>Price: $${listing.price}</p>
-            <p>Type: ${listing.type === "sell" ? "For Sale" : "Looking to Buy"}</p>
-        `;
-        listingContainer.appendChild(listingDiv);
+    if (user && user.email === emailLogin && user.password === passwordLogin) {
+        alert('Login successful!');
+    } else {
+        alert('Incorrect email or password');
     }
 });
+
+// Sell product handler
+document.getElementById('sellForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    let productName = document.getElementById('productName').value;
+    let productPrice = document.getElementById('productPrice').value;
+    let productDescription = document.getElementById('productDescription').value;
+    let productImage = document.getElementById('productImage').files[0];
+
+    let reader = new FileReader();
+    reader.onloadend = function() {
+        let imageSrc = reader.result;
+
+        let product = {
+            name: productName,
+            price: productPrice,
+            description: productDescription,
+            image: imageSrc
+        };
+
+        // Store product in local storage (or backend)
+        let products = JSON.parse(localStorage.getItem('products')) || [];
+        products.push(product);
+        localStorage.setItem('products', JSON.stringify(products));
+       
+        alert('Product added successfully!');
+        displayProducts(); // Refresh product list
+    };
+
+    if (productImage) {
+        reader.readAsDataURL(productImage);
+    }
+});
+
+// Function to display available products
+function displayProducts() {
+    let products = JSON.parse(localStorage.getItem('products')) || [];
+    let productList = document.querySelector('.product-list');
+    productList.innerHTML = '';
+
+    products.forEach(product => {
+        let productDiv = document.createElement('div');
+        productDiv.innerHTML = `
+            <img src="${product.image}" alt="${product.name}">
+            <h3>${product.name}</h3>
+            <p>${product.price}</p>
+            <p>${product.description}</p>
+            <button onclick="buyProduct('${product.name}')">Buy</button>
+        `;
+        productList.appendChild(productDiv);
+    });
+}
+
+// Function to handle buying a product
+function buyProduct(productName) {
+    alert(`You bought ${productName}!`);
+}
+
+// Initial call to display products on page load
+displayProducts();
