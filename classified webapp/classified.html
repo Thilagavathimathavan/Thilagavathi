@@ -75,6 +75,36 @@
             <!-- Dynamically populated product items will go here -->
         </div>
     </section>
+    <!-- Available Products for Buying -->
+<section id="products">
+    <h2>Available Products</h2>
+    <div class="product-list">
+        <!-- Dynamically populated product items will go here -->
+    </div>
+</section>
+
+<!-- Delivery Information Form (will appear after a product is selected) -->
+<section id="deliveryInfo" style="display:none;">
+    <h2>Delivery Information</h2>
+    <form id="deliveryForm">
+        <label for="fullName">Full Name:</label>
+        <input type="text" id="fullName" name="fullName" required><br><br>
+
+        <label for="address">Address:</label>
+        <input type="text" id="address" name="address" required><br><br>
+
+        <label for="city">City:</label>
+        <input type="text" id="city" name="city" required><br><br>
+
+        <label for="postCode">Postal Code:</label>
+        <input type="text" id="postalCode" name="postalCode" required><br><br>
+
+        <label for="phoneNumber">Phone Number:</label>
+        <input type="tel" id="phoneNumber" name="phoneNumber" required><br><br>
+
+        <button type="submit">Confirm Purchase</button>
+    </form>
+</section>
 
     <script src="script.js"></script>
 </body>
