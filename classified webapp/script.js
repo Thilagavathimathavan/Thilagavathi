@@ -85,3 +85,4 @@ function buyProduct(productName) {
 
 // Initial call to display products on page load
 displayProducts();
+                                                   
