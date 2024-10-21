@@ -85,4 +85,36 @@ function buyProduct(productName) {
 
 // Initial call to display products on page load
 displayProducts();
-                                                   
+
+     // Function to handle buying a product (show delivery form)
+function buyProduct(productName) {
+    document.getElementById('deliveryInfo').style.display = 'block';
+    let selectedProduct = productName;
+    
+    // Handle delivery form submission
+    document.getElementById('deliveryForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        let fullName = document.getElementById('fullName').value;
+        let address = document.getElementById('address').value;
+        let city = document.getElementById('city').value;
+        let postalCode = document.getElementById('postalCode').value;
+        let phoneNumber = document.getElementById('phoneNumber').value;
+
+        let deliveryInfo = {
+            fullName,
+            address,
+            city,
+            postalCode,
+            phoneNumber,
+            product: selectedProduct
+        };
+
+        // Store delivery info locally (or send it to a backend system)
+        localStorage.setItem('deliveryInfo', JSON.stringify(deliveryInfo));
+        alert(`Purchase of ${selectedProduct} confirmed! Delivery to: ${address}, ${city}, ${postalCode}`);
+        
+        // Hide the delivery form after submission
+        document.getElementById('deliveryInfo').style.display = 'none';
+    });
+}                                              
