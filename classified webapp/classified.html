@@ -3,39 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Classifieds App</title>
+    <title>Classified Buy & Sell</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
-        <h1>Classifieds App</h1>
-        <button id="addListingBtn">Add Listing</button>
+        <h1>Classified Buy & Sell</h1>
+        <nav>
+            <a href="#register">Register</a>
+            <a href="#login">Login</a>
+            <a href="#sellProduct">Sell Product</a>
+            <a href="#products">Buy Products</a>
+        </nav>
     </header>
 
-    <main>
-        <div id="listingContainer"></div>
-    </main>
+    <!-- Registration Form -->
+    <section id="register">
+        <h2>Register</h2>
+        <form id="registerForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required><br><br>
+           
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required><br><br>
+           
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required><br><br>
+           
+            <button type="submit">Register</button>
+        </form>
+    </section>
 
-    <div id="addListingModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2>Add Listing</h2>
-            <form id="listingForm">
-                <input type="text" id="title" placeholder="Product Title" required>
-                <input type="text" id="description" placeholder="Product Description" required>
-                <input type="number" id="price" placeholder="Price" required>
-                <input type="file" id="image" accept="image/*" required>
-                <select id="type" required>
-                    <option value="">Select Type</option>
-                    <option value="sell">Sell</option>
-                    <option value="buy">Buy</option>
-                </select>
-                <button type="submit">Submit</button>
-            </form>
+    <!-- Login Form -->
+    <section id="login">
+        <h2>Login</h2>
+        <form id="loginForm">
+            <label for="emailLogin">Email:</label>
+            <input type="email" id="emailLogin" name="emailLogin" required><br><br>
+           
+            <label for="passwordLogin">Password:</label>
+            <input type="password" id="passwordLogin" name="passwordLogin" required><br><br>
+           
+            <button type="submit">Login</button>
+        </form>
+    </section>
+
+    <!-- Sell Product Form (including image upload) -->
+    <section id="sellProduct">
+        <h2>Sell a Product</h2>
+        <form id="sellForm">
+            <label for="productName">Product Name:</label>
+            <input type="text" id="productName" name="productName" required><br><br>
+           
+            <label for="productPrice">Price:</label>
+            <input type="text" id="productPrice" name="productPrice" required><br><br>
+           
+            <label for="productDescription">Description:</label>
+            <textarea id="productDescription" name="productDescription" required></textarea><br><br>
+           
+            <label for="productImage">Upload Image:</label>
+            <input type="file" id="productImage" name="productImage" accept="image/*" required><br><br>
+           
+            <button type="submit">Sell Product</button>
+        </form>
+    </section>
+
+    <!-- Available Products for Buying -->
+    <section id="products">
+        <h2>Available Products</h2>
+        <div class="product-list">
+            <!-- Dynamically populated product items will go here -->
         </div>
-    </div>
+    </section>
 
     <script src="script.js"></script>
 </body>
 </html>
-
