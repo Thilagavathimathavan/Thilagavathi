@@ -6,8 +6,8 @@ body {
 }
 
 header {
-    background: #333;
-    color: purple;
+    background: purple;
+    color: #fff;
     padding: 20px;
     text-align: center;
 }
