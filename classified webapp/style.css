@@ -27,7 +27,9 @@ header nav a:hover {
 section {
     padding: 20px;
 }
-
+section id{
+    text-align:center;
+}
 form {
     background: linear-gradient(135deg,rgba(255,204,204,0.5),rgba(255,255,204,0.5),rgba(204,255,255,0.5),rgba(255,204,255,0.5));
     padding: 20px;
