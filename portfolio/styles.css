@@ -64,6 +64,8 @@ section {
 img{
     display:inline-block;
     padding:20px;
+    width:80px;
+    height:80px;
 }
 
 .project {
