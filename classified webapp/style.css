@@ -11,6 +11,10 @@ header {
     padding: 15px 0;
     text-align: center;
 }
+ .header image{
+     width:80px;
+     height:80px;
+ }
 
 header nav a {
     color: white;
@@ -78,8 +82,4 @@ button:hover {
     height: auto;
     margin-bottom: 10px;
 }
- .header-image{
-     width:80px;
-     height:80px;
- }
 
